@@ -118,7 +118,7 @@ The app will need an API key to make the call, which we would store in the key v
 
 The sample creates a new key vault, add a key and a secret to the vault, retrieve keys and secrets from it, authorizes an app to use this keyvault's resources.
 
-We start by logging in using your service principal and creating ResourceManagementClient and KeyVaultManagementClient objects. 
+We start by logging in using your service principal and creating ResourceManagementClient and KeyVaultManagementClient objects. (We should perhaps link to what ResourceManagementClient and KeyVaultManagementClient Objects are and what they do) 
 We then perform an authentication handshake with the KeyVault service before creating a KeyVaultClient object.
 
    ```
@@ -152,7 +152,7 @@ The next step is to create and provision a key vault resource.
    keyVaultManagementClient.vaults.createOrUpdate(resourceGroupName, keyVaultName, keyVaultParameters).then( /* ... */ );
    ```
 
-One a key vault has been provisioned, we interact with it by 
+Once a key vault has been provisioned, we interact with it by 
 
 a. adding a key.
 
@@ -168,7 +168,7 @@ a. adding a key.
    keyVaultClient.createKey(vaultUri, keyName, 'RSA', keyOptions).then( /* ... */ );
    ```
 
-b. set a secret.
+b. setting a secret.
 
    ```
    let attributes = { expires: new Date(...), notBefore: new Date(...) };
@@ -182,13 +182,13 @@ b. set a secret.
    keyVaultClient.setSecret(vaultUri, secretName, secretValue, secretOptions).then( /*  ... */ );
    ```
 
-c. get all keys from the vault.
+c. getting all keys from the vault.
 
    ```
    keyVaultClient.getKeys(vaultUri).then( /*  ... */ );
    ```
 
-d. get all secrets from the vault.
+d. getting all secrets from the vault.
 
    ```
    keyVaultClient.getSecrets(vaultUri).then( /*  ... */ );
